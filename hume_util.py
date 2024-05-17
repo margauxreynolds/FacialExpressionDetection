@@ -15,6 +15,7 @@ def get_facial_analytics(file_path):
     ]
     config = FaceConfig()
     print(f" FILEPATHS: {file_path}")
+    print(f" workingdir: {os.getcwd()}")
     job = client.submit_job(None, [config], files=filepaths)
 
     print(job)
