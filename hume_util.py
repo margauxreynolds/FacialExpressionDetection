@@ -6,7 +6,7 @@ dotenv.load_dotenv()
 from hume import HumeBatchClient
 from hume.models.config import FaceConfig
 
-client = HumeBatchClient(os.getenv("HUME_API_KEY"))
+client = HumeBatchClient(os.getenv("kMENaHiAP3PCuEkdaUPbCx1JfUHvN2PRsN7Aaoe6GvPTkpzS"))
 
 
 def get_facial_analytics(file_path):
