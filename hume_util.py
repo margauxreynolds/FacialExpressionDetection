@@ -5,6 +5,7 @@ import dotenv
 dotenv.load_dotenv()
 from hume import HumeBatchClient
 from hume.models.config import FaceConfig
+#todo: add key to secret
 
 client = HumeBatchClient("kMENaHiAP3PCuEkdaUPbCx1JfUHvN2PRsN7Aaoe6GvPTkpzS")
 
