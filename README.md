@@ -47,3 +47,4 @@ This project is licensed under the MIT License.
 ## Created by
 
 - [Margaux Reynolds](https://github.com/margauxreynolds)
+- [Will Reynolds](https://github.com/willreynolds5)
