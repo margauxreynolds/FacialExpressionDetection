@@ -2,9 +2,7 @@ import streamlit as st
 from PIL import Image
 import os
 import pandas as pd
-
 from hume_util import get_facial_analytics
-
 
 # Main title
 st.title("📊 Facial Expression Analyzer")
@@ -14,28 +12,29 @@ st.sidebar.title("Image Analyzer")
 uploaded_file = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
 def display_emotion_data(data):
-
     try:
-
         predictions = data[0]['results']['predictions'][0]['models']['face']['grouped_predictions'][0]['predictions'][0]
-
         emotions = predictions['emotions']
         emotion_df = pd.DataFrame(emotions).sort_values(by='score', ascending=False)
 
-        #t.title("Emotion Analysis Results")
-        #st.image(data[0]['source']['filename'], caption='Uploaded Image', use_column_width=True)
         st.subheader("Detected Emotions and Scores")
         st.table(emotion_df)
 
-        # store data in state
-        st.s
+        # Store data in session state
+        st.session_state["emotion_df"] = emotion_df
+
+        # Add download button for CSV
+        csv = emotion_df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="Download emotion data as CSV",
+            data=csv,
+            file_name='emotion_data.csv',
+            mime='text/csv',
+        )
 
     except KeyError as e:
-
         st.error(f"Error: Missing key in the data structure: {e}")
-
     except Exception as e:
-
         st.error(f"An unexpected error occurred: {e}")
 
 if uploaded_file is not None:
