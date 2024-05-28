@@ -7,7 +7,7 @@ from hume_util import get_facial_analytics
 
 
 # Main title
-st.title("📊 Facial Expression Analyzer 😊")
+st.title("📊 Facial Expression Analyzer")
 
 # Side bar title
 st.sidebar.title("Image Analyzer")
@@ -26,6 +26,9 @@ def display_emotion_data(data):
         #st.image(data[0]['source']['filename'], caption='Uploaded Image', use_column_width=True)
         st.subheader("Detected Emotions and Scores")
         st.table(emotion_df)
+
+        # store data in state
+        st.s
 
     except KeyError as e:
 
